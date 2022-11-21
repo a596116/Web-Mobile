@@ -1,10 +1,10 @@
 <template>
   <div
-    class="relative min-h-screen w-full bg-gradient-to-tr from-blue-100 to-purple-100"
+    class="relative flex flex-col h-screen w-full bg-gradient-to-tr from-blue-100 to-purple-100"
   >
-    <Navbar title="用戶登入" />
+    <Navbar />
     <section
-      class="relative w-full min-h-screen flex justify-center items-center p-6 text-center"
+      class="relative w-full flex-1 flex justify-center items-center p-6 text-center"
     >
       <button
         class="absolute top-5 right-5 rounded-2xl border-b-4 border-b-blue-400 bg-blue-300 py-3 px-2 font-bold text-white hover:bg-blue-400 active:translate-y-[0.125rem] active:border-b-blue-400"
@@ -18,7 +18,7 @@
               <div
                 class="w-full py-3 flex items-center rounded-2xl bg-gray-100 px-4 border ring-2 ring-gray-200 focus-within:ring-blue-400"
               >
-                <Field value="" name="phone" v-slot="{ field }">
+                <Field value="0911111111" name="phone" v-slot="{ field }">
                   <van-image
                     class="w-[20px] h-[28px] mx-3"
                     src="/img/auth/mobile_icon.png"
@@ -102,7 +102,11 @@ import v from '@/utils/validate'
 const { Form, Field, ErrorMessage } = v
 
 const schema = v.yup.object({
-  phone: v.yup.string().required('請輸入手機'),
+  phone: v.yup
+    .string()
+    .required('請輸入手機')
+    .matches(/^(09)/gi, '手機格式錯誤')
+    .length(10, '手機為10位'),
   password: v.yup.string().required('請輸入密碼').min(5, '請輸入至少五個字'),
 })
 

@@ -1,23 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router'
-// import { userStores } from '@/stores/userStore'
-import autoload from './autoload'
 import guard from './guard'
-import { routes } from './routes'
-import type { App } from 'vue'
+import routes from './module/index'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes
+  routes,
+  scrollBehavior() {
+    return { top: 0, behavior: 'smooth' }
+  },
 })
 
-export const setupRouter = async (app: App) => {
-  if (window.location.href.match(/admin/ig)) {
-    // await userStores().getUserInfo()
-  }
-  autoload(router)
-  guard(router)
-  app.use(router)
-}
-
+guard(router)
 
 export default router
