@@ -13,5 +13,13 @@ export default {
         title: '用戶登入'
       }
     },
+    {
+      path: '/register',
+      name: 'loregistergin',
+      component: () => import('@/views/auth/register.vue'),
+      meta: {
+        title: '用戶註冊'
+      }
+    },
   ],
 } as RouteRecordRaw

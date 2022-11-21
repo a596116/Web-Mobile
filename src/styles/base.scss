@@ -2,9 +2,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  // margin: 0;
-  // padding: 0;
-  // position: relative;
 }
 html,
 * {
@@ -22,9 +19,6 @@ html,
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
-// img {
-//   max-width: none;
-// }
 
 $hd-bg-white: #f1f6f6;
 $hd-text-black: #6b7280;
@@ -42,4 +36,13 @@ $hd-text-white: #e0e0e0;
 
   --hd-bg-white: #f1f2f6;
   --hd-bg-black: #dfe4ea;
+}
+
+.van-pull-refresh {
+  height: calc(100vh - 50px) !important;
+  min-height: calc(100vh - 50px) !important;
+}
+
+.van-pull-refresh__track {
+  height: calc(100vh - 50px) !important;
 }

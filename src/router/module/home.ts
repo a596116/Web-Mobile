@@ -2,12 +2,13 @@ import type { RouteRecordRaw } from 'vue-router'
 export default [
   {
     path: '/',
+    redirect: 'home',
     component: () => import('@/layouts/home.vue'),
     meta: { auth: false, menu: { title: '首頁' } },
     children: [
       {
         name: 'home',
-        path: '/',
+        path: 'home',
         component: () => import('@/views/home/index.vue'),
         meta: {
           title: '首頁'

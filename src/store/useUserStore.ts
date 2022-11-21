@@ -1,7 +1,14 @@
 export const userStores = defineStore({
     id: 'user',
     state: () => ({
-        user: undefined as UserModel | undefined,
+        user: {
+            id: '1',
+            name: '浩呆',
+            phone: '091111111',
+            password: '123456',
+            permissions: [],
+            active: '1'
+        } as UserModel | undefined,
     }),
     actions: {
         setUser(data: UserModel) {

@@ -17,13 +17,15 @@ const emit = defineEmits<{
   (e: 'update:active', d: string): void
 }>()
 
-const active = ref('首頁')
-
-const changeTabBar = (n: string) => {
-  emit('update:active', n)
+interface BAR {
+  [key: string]: {
+    name: string
+    url: string
+    active: string
+    inactive: string
+  }
 }
-
-const bar = {
+const bar: BAR = {
   home: {
     name: '首頁',
     url: 'home',
@@ -42,12 +44,18 @@ const bar = {
     active: '/img/tabBar/topicfill.png',
     inactive: '/img/tabBar/topic.png',
   },
-  my: {
+  user: {
     name: '用戶',
     url: 'user',
     active: '/img/tabBar/myfill.png',
     inactive: '/img/tabBar/my.png',
   },
+}
+const route = useRoute()
+const active = ref(bar[route.name as string].name || '首頁')
+
+const changeTabBar = (n: string) => {
+  emit('update:active', n)
 }
 </script>
 
