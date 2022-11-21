@@ -1,5 +1,5 @@
 <template>
-  <van-tabbar v-model="active" @change="changeTabBar">
+  <van-tabbar v-model="active" @change="changeTabBar" class="tabbar">
     <van-tabbar-item v-for="item of bar" :name="item.name" :to="item.url">
       <span>{{ item.name }}</span>
       <template #icon="props">
@@ -51,4 +51,9 @@ const bar = {
 }
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.tabbar {
+  --van-tabbar-background-color: #f2c970;
+  --van-tabbar-item-active-background-color: #f2c970;
+}
+</style>

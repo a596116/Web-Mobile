@@ -4,7 +4,7 @@
     :left-text="props.leftText"
     left-arrow
     @click-left="onClickLeft"
-  />
+    class="navbar" />
 </template>
 
 <script setup lang="ts">
@@ -14,7 +14,7 @@ const props = withDefaults(
   }>(),
   {
     leftText: '返回',
-  }
+  },
 )
 
 const title = ref(useTitle().value!)
@@ -23,4 +23,11 @@ const onClickLeft = () => {
 }
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.navbar {
+  --van-nav-bar-background-color: #f4ddab;
+  --van-nav-bar-text-color: #576574;
+  --van-nav-bar-icon-color: #576574;
+  --van-nav-bar-title-text-color: #576574;
+}
+</style>

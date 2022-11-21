@@ -25,16 +25,8 @@ export const autoImport = (plugin: Plugin[]) => {
         }),
         Components({
             resolvers: [
-                VueUseComponentsResolver(),
-                VantResolver()
+                VantResolver(), VueUseComponentsResolver(),
             ],
-            dirs: ['src/components'],
-            // 組件名稱包含目錄， 防止同名組件衝突
-            directoryAsNamespace: true,
-            // 指定類型聲明文件，為true時在項目根目錄創建
-            dts: 'types/components.d.ts',
-            // 组件的有效文件扩展名。
-            extensions: ['vue'],
         }),
     )
 }
