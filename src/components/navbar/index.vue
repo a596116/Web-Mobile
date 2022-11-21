@@ -25,7 +25,7 @@ const onClickLeft = () => {
 
 <style scoped lang="scss">
 .navbar {
-  --van-nav-bar-background-color: #f4ddab;
+  --van-nav-bar-background-color: #f5d89a;
   --van-nav-bar-text-color: #576574;
   --van-nav-bar-icon-color: #576574;
   --van-nav-bar-title-text-color: #576574;
