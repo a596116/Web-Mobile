@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import router, { setupRouter } from './router'
-
+import router from '@/router'
+import { createPinia } from 'pinia'
 /**
  * Tailwindcss
  */
@@ -23,8 +23,8 @@ import 'vant/es/image-preview/style'
 async function main() {
     const app = createApp(App)
     app.use(Toast, Dialog, Notify, ImagePreview)
-    setupRouter(app)
-
+    app.use(createPinia())
+    app.use(router)
     app.mount('#app')
 }
 main()
